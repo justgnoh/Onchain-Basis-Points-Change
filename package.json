@@ -1,0 +1,17 @@
+{
+  "name": "onchain-basis-points-change",
+  "version": "1.0.0",
+  "description": "An on-chain analysis tool to get basis point changes for axlUSDC/USDC pairs between swaps.",
+  "scripts": {
+    "test": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/justgnoh/Onchain-Basis-Points-Change.git"
+  },
+  "author": "justgnoh",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.5.0"
+  }
+}
