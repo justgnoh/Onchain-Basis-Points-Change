@@ -42,7 +42,7 @@ switch(from_chain) {
     from_subgraph = linea_kyber;
     from_poolID = "0xfbedc4ebeb2951ff96a636c934fce35117847c9d"
     break;
-  case 'bsc':
+  case 'binance':
     from_subgraph = bsc_pancake;
     from_poolID = "0x803036ac78752ef599ec75c500ac8b0ac0be67df"
     break;
@@ -64,7 +64,7 @@ switch(to_chain) {
     to_subgraph = linea_kyber;
     to_poolID = "0xfbedc4ebeb2951ff96a636c934fce35117847c9d"
     break;
-  case 'bsc':
+  case 'binance':
     to_subgraph = bsc_pancake;
     to_poolID = "0x803036ac78752ef599ec75c500ac8b0ac0be67df"
     break;
@@ -81,7 +81,7 @@ async function calculateBpsChange(sqrtPriceX96, nextsqrtPriceX96, chain) {
   let Decimal1 = 6;
   let Decimal0 = 6;
 
-  if (chain == 'bsc') {
+  if (chain == 'binance') {
     // axlUSDC/BUSD
     // ...
     Decimal1 = 18
@@ -282,7 +282,7 @@ async function main() {
     console.log("===== Getting Prev Sqrt Price...")
     prevExitSQRTPrice = await getPreviousSQRTPrice(to_subgraph, to_poolID, executedTXblockNumber, 5);
 
-    let totalbpschanged = await calculateBpsChange(prevEntrySQRTPrice, entrySQRTPrice, from_chain) + await calculateBpsChange(79265987523607066011758420225828486, 79267046891314047917921069580091957, 'bsc')
+    let totalbpschanged = await calculateBpsChange(prevEntrySQRTPrice, entrySQRTPrice, from_chain) + await calculateBpsChange(79265987523607066011758420225828486, 79267046891314047917921069580091957, to_chain)
 
     // Write results to results.txt
     fs.appendFileSync('results.txt', "tx: " + i + " , " + totalbpschanged +"\n",'utf-8');
